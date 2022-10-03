@@ -25,3 +25,10 @@ class Post < ApplicationRecord
     has_many :posts, through: :post_tags
   end
 # Conventionally, we label foreign keys in Active Record using the name of the model you're referencing, and _id eg author_id
+# We need to have a way where the action will also display data of the associated table this is done using include which is part of serialization
+render json: dog_house, include: :reviews
+# The code below will allow us to delete the associative table if the parent is deleted.
+class DogHouse < ApplicationRecord
+    has_many :reviews, dependent: :destroy
+  end
+# With Active Record, we can use the dependent: :destroy option to automatically remove associated records when the parent record is deleted.
