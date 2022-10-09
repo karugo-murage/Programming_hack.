@@ -23,4 +23,17 @@ end
 def summary
     "#{self.object.title} - #{self.object.description[0..49]}..."
 end
+
+
+
 # Explicit serialization
+# We also add the relationships in our serialization. Do this only if you want to return the data belonging to the other table.
+class DirectorSerializer < ActiveModel::Serializer
+    attributes :id, :name, :birthplace, :female_director
+  
+    has_many :movies
+  end
+# To customize the JSON returned for a resource, create a serializer for that resource and list the desired attributes.
+# The serializer is used implicitly by Rails based on naming conventions; to override this, custom serializers can be passed explicitly.
+# AMS enables the use of the belongs_to and has_many macros in serializers to render associated data; these macros should be used sparingly.
+# By default, AMS will only nest associations one level deep in the serialized JSON. To override this, the include option can be used
