@@ -9,7 +9,7 @@ validates :name, length: { minimum: 2 }
 # UNIQUENESS VALIDATION.
 validates :email, uniqueness: true
 # CUSTOM VALIDATION.
-# This is done /accomplished using the validate keyword. It takes the formart;
+# This is done /accomplished using the validate keyword. It takes the format;
 class Person
     validate :must_have_flatiron_email
   

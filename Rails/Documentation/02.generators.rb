@@ -32,6 +32,8 @@ end
 patch "/birds/:id/like", to: "birds#increment_likes"
 
 rails g resource Movie title year:integer length:integer director description poster_url category discount:boolean female_director:boolean --no-test-framework
+
+rails g resource Power name description         
 # This command will:
 # Generate a migration for creating a movies table with the specified attributes
 # Generate a Movie model file
